@@ -1,0 +1,41 @@
+.list{
+    margin: 20px 0;    
+    display: flex;
+    align-items: baseline;       
+}
+ul{
+    list-style-type: none;
+    padding:0 !important;
+}
+.middle ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+li{
+    margin: 10px;
+}
+.left,.right{
+   width: 40%;
+}
+.right{
+    text-align: right;
+}
+.middle{
+   width:20%;
+}
+.same{
+    display: none;
+}
+
+p{
+    font-size:30px;
+}
+
+p:hover{
+    background-color: grey;
+    cursor:pointer;
+}
+.span{
+    display: inline;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="same" id="div1">
+        <img src="images/forest-g254a9e087_1920.jpg" alt="forest" width="100%">
+    </div>
+
+    <div class="same" id="div2">
+        <img src="images/easter-eggs-gc27664790_1920.jpg" alt="easter-eggs" width="100%">
+    </div>
+
+    <div class="same" id="div3">
+        <img src="images/field-g44736fe98_1920.jpg" alt="field" width="100%">
+    </div>
+
+    <div class="same" id="div4">
+        <img src="images/mansion-gaf46a444b_1920.jpg" alt="mansion" width="100%">
+    </div>
+
+    <div class="same" id="div5">
+        <img src="images/tulips-ge9130b7f7_1920.jpg" alt="tulips" width="100%">
+    </div>
+
+    <div class="list">
+       
+            <div class="left">
+                <ul>
+                    <li> <p  onclick="left();" id="left" class="span"> < Prev </p></li>
+                </ul>
+            </div>
+            <div class="middle">
+                <ul>
+
+                    <li><p onclick="fun1();" id="p1">1</p></li>
+                    <li><p onclick="fun2();" id="p2">2</p></li>
+                    <li><p onclick="fun3();" id="p3">3</p></li>
+                    <li><p onclick="fun4();" id="p4">4</p></li>
+                    <li><p onclick="fun5();" id="p5">5</p></li>
+                </ul>
+            </div>
+
+            <div class="right">
+                <ul>
+                    <li><p onclick="right();" id="right" class="span"> Next > </p></li>
+                </ul>
+            </div>
+
+    </div>
+    <script>
+            document.getElementById("div3").style.display = "block";    
+            document.getElementById("p3").style.fontWeight = "bold";
+            document.getElementById("p3").style.textDecoration = "underline";
+ 
+    
+            function fun1(){           
+                allDisplayNo();
+                document.getElementById("div1").style.display = "block";
+                document.getElementById("p1").style.fontWeight = "bold";
+                document.getElementById("p1").style.textDecoration = "underline";
+                document.getElementById("left").style.display = "none";
+            }
+
+            function fun2(){
+                allDisplayNo();
+                document.getElementById("div2").style.display = "block";
+                document.getElementById("p2").style.fontWeight = "bold";
+                document.getElementById("p2").style.textDecoration = "underline";
+            }
+
+            function fun3(){
+                allDisplayNo();
+                document.getElementById("div3").style.display = "block";
+                document.getElementById("p3").style.fontWeight = "bold";
+                document.getElementById("p3").style.textDecoration = "underline";
+            }
+
+            function fun4(){
+                allDisplayNo();
+                document.getElementById("div4").style.display = "block";
+                document.getElementById("p4").style.fontWeight = "bold";
+                document.getElementById("p4").style.textDecoration = "underline";
+            }
+
+            function fun5(){
+                allDisplayNo();
+                document.getElementById("div5").style.display = "block";
+                document.getElementById("p5").style.fontWeight = "bold";
+                document.getElementById("p5").style.textDecoration = "underline";
+                document.getElementById("right").style.display = "none";   
+            }
+
+            function left() {
+                if(document.getElementById("div2").style.display == "block"){
+                    fun1();
+                }
+                if(document.getElementById("div3").style.display == "block"){
+                    fun2();
+                }
+                if(document.getElementById("div4").style.display == "block") {
+                    fun3();
+                }
+                if(document.getElementById("div5").style.display == "block"){
+                    fun4();
+                }
+                if(document.getElementById("div1").style.display == "block") {
+                    document.getElementById("left").style.display = "none";
+                }
+            }
+
+            function right() {
+                    if( document.getElementById("div4").style.display == "block" ){
+                        fun5();
+                    }
+
+                    if( document.getElementById("div3").style.display == "block" ){
+                        fun4();
+                    }
+                    
+                    if( document.getElementById("div2").style.display == "block" ){
+                        fun3();
+                    }
+                    
+                    if( document.getElementById("div1").style.display == "block" ) {
+                        fun2();  
+                    } 
+                    
+                    if( document.getElementById("div5").style.display == "block" ){
+                    document.getElementById("right").style.display = "none";
+                }
+            }
+            
+    function allDisplayNo(){
+        document.getElementById("div1").style.display = "none";
+        document.getElementById("div2").style.display = "none";
+        document.getElementById("div3").style.display = "none";
+        document.getElementById("div4").style.display = "none";
+        document.getElementById("div5").style.display = "none";
+        // document.getElementsByClassName(".same").style.display = "none"; 
+        document.getElementById("p1").style.fontWeight = "unset";
+        document.getElementById("p1").style.textDecoration = "none";
+        document.getElementById("p2").style.fontWeight = "unset";
+        document.getElementById("p2").style.textDecoration = "none";
+        document.getElementById("p3").style.fontWeight = "unset";
+        document.getElementById("p3").style.textDecoration = "none";
+        document.getElementById("p4").style.fontWeight = "unset";
+        document.getElementById("p4").style.textDecoration = "none";
+        document.getElementById("p5").style.fontWeight = "unset";
+        document.getElementById("p5").style.textDecoration = "none";
+        document.getElementById("left").style.display = "inline";
+        document.getElementById("right").style.display = "inline";        
+    }
+            
+    </script>
+</body>
+</html>
