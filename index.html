@@ -4,160 +4,137 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carousal</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <div class="same" id="div1">
-        <img src="images/forest-g254a9e087_1920.jpg" alt="forest" width="100%">
-    </div>
-
-    <div class="same" id="div2">
-        <img src="images/easter-eggs-gc27664790_1920.jpg" alt="easter-eggs" width="100%">
-    </div>
-
-    <div class="same" id="div3">
-        <img src="images/field-g44736fe98_1920.jpg" alt="field" width="100%">
-    </div>
-
-    <div class="same" id="div4">
-        <img src="images/mansion-gaf46a444b_1920.jpg" alt="mansion" width="100%">
-    </div>
-
-    <div class="same" id="div5">
-        <img src="images/tulips-ge9130b7f7_1920.jpg" alt="tulips" width="100%">
-    </div>
-
-    <div class="list">
-       
-            <div class="left">
-                <ul>
-                    <li> <p  onclick="left();" id="left" class="span"> < Prev </p></li>
-                </ul>
-            </div>
-            <div class="middle">
-                <ul>
-
-                    <li><p onclick="fun1();" id="p1">1</p></li>
-                    <li><p onclick="fun2();" id="p2">2</p></li>
-                    <li><p onclick="fun3();" id="p3">3</p></li>
-                    <li><p onclick="fun4();" id="p4">4</p></li>
-                    <li><p onclick="fun5();" id="p5">5</p></li>
-                </ul>
-            </div>
-
-            <div class="right">
-                <ul>
-                    <li><p onclick="right();" id="right" class="span"> Next > </p></li>
-                </ul>
-            </div>
-
-    </div>
+    <h1>JS CAROUSAL</h1>
     <script>
-            document.getElementById("div3").style.display = "block";    
-            document.getElementById("p3").style.fontWeight = "bold";
-            document.getElementById("p3").style.textDecoration = "underline";
- 
+        const slidesObj = [
+            {
+                'src':'images/forest-g254a9e087_1920.jpg',
+                'alt':'forest'
+            },
+            {
+                'src':'images/easter-eggs-gc27664790_1920.jpg',
+                'alt':'easter-eggs'
+            },
+            {
+                'src':'images/field-g44736fe98_1920.jpg',
+                'alt':'field'
+            },
+            {
+                'src':'images/mansion-gaf46a444b_1920.jpg',
+                'alt':'mansion'
+            },
+            {
+                'src':'images/tulips-ge9130b7f7_1920.jpg',
+                'alt':'tulips'
+            }
+        ];
+
+        
+    </script>
+<div class="mainContent">
+
+        <div class="sliderDiv">
+            <img src="" alt="" id="imgDisplayer">
+        </div>
     
-            function fun1(){           
-                allDisplayNo();
-                document.getElementById("div1").style.display = "block";
-                document.getElementById("p1").style.fontWeight = "bold";
-                document.getElementById("p1").style.textDecoration = "underline";
-                document.getElementById("left").style.display = "none";
-            }
 
-            function fun2(){
-                allDisplayNo();
-                document.getElementById("div2").style.display = "block";
-                document.getElementById("p2").style.fontWeight = "bold";
-                document.getElementById("p2").style.textDecoration = "underline";
-            }
 
-            function fun3(){
-                allDisplayNo();
-                document.getElementById("div3").style.display = "block";
-                document.getElementById("p3").style.fontWeight = "bold";
-                document.getElementById("p3").style.textDecoration = "underline";
-            }
+    <div class="clickableLinks">
+       <!-- this div contains "< Prev " -->
+            <div class="prevDiv">
+                <ul>
+                    <li onclick="left();" id="left" class="span"> < Prev </li>
+                </ul>
+            </div>
 
-            function fun4(){
-                allDisplayNo();
-                document.getElementById("div4").style.display = "block";
-                document.getElementById("p4").style.fontWeight = "bold";
-                document.getElementById("p4").style.textDecoration = "underline";
-            }
+            <!-- this div will be in the middle -->
+            <div class="slideNumbers">
+                <ul id="ul1">
+                                            
+                </ul>
+            </div>
 
-            function fun5(){
-                allDisplayNo();
-                document.getElementById("div5").style.display = "block";
-                document.getElementById("p5").style.fontWeight = "bold";
-                document.getElementById("p5").style.textDecoration = "underline";
-                document.getElementById("right").style.display = "none";   
-            }
+            <!-- this div contains "Next > "-->
+            <div class="nextDiv">
+                <ul>
+                    <li onclick="right();" id="right" class="span"> Next > </li>
+                </ul>
+            </div>
 
-            function left() {
-                if(document.getElementById("div2").style.display == "block"){
-                    fun1();
-                }
-                if(document.getElementById("div3").style.display == "block"){
-                    fun2();
-                }
-                if(document.getElementById("div4").style.display == "block") {
-                    fun3();
-                }
-                if(document.getElementById("div5").style.display == "block"){
-                    fun4();
-                }
-                if(document.getElementById("div1").style.display == "block") {
-                    document.getElementById("left").style.display = "none";
-                }
-            }
+    </div>
+</div>
 
-            function right() {
-                    if( document.getElementById("div4").style.display == "block" ){
-                        fun5();
-                    }
 
-                    if( document.getElementById("div3").style.display == "block" ){
-                        fun4();
-                    }
-                    
-                    if( document.getElementById("div2").style.display == "block" ){
-                        fun3();
-                    }
-                    
-                    if( document.getElementById("div1").style.display == "block" ) {
-                        fun2();  
-                    } 
-                    
-                    if( document.getElementById("div5").style.display == "block" ){
-                    document.getElementById("right").style.display = "none";
-                }
+    <script>
+
+        function removeBoldUnderline(){
+
+            for(let i=0; i<slidesObj.length; i++){
+               
+                document.getElementsByClassName("slides")[i].style.fontWeight = "unset";
+
+                document.getElementsByClassName("slides")[i].style.textDecoration = "none";
+
+
             }
+        }
+
+
+        //function for displaying slide links lists and their ids
+        function displayLinks(){
+
+            var text = "";
+
+            slidesObj.forEach(function(value,index){
+
+                text += `<li id="${index+1}" class="slides" onclick="loadSlide(${index+1});">${index+1}</li>`;
+                document.getElementById("ul1").innerHTML = text;
+
+            });
             
-    function allDisplayNo(){
-        document.getElementById("div1").style.display = "none";
-        document.getElementById("div2").style.display = "none";
-        document.getElementById("div3").style.display = "none";
-        document.getElementById("div4").style.display = "none";
-        document.getElementById("div5").style.display = "none";
-        // document.getElementsByClassName(".same").style.display = "none"; 
-        document.getElementById("p1").style.fontWeight = "unset";
-        document.getElementById("p1").style.textDecoration = "none";
-        document.getElementById("p2").style.fontWeight = "unset";
-        document.getElementById("p2").style.textDecoration = "none";
-        document.getElementById("p3").style.fontWeight = "unset";
-        document.getElementById("p3").style.textDecoration = "none";
-        document.getElementById("p4").style.fontWeight = "unset";
-        document.getElementById("p4").style.textDecoration = "none";
-        document.getElementById("p5").style.fontWeight = "unset";
-        document.getElementById("p5").style.textDecoration = "none";
-        document.getElementById("left").style.display = "inline";
-        document.getElementById("right").style.display = "inline";        
-    }
-            
+        }
+
+        // function for loading the 1st slide on default and loading other slides on click
+        function loadSlide(y){
+
+                removeBoldUnderline();
+
+                if(y == 1)
+                {
+                    document.getElementById("left").style.visibility = "hidden";
+                    document.getElementById("right").style.visibility = "unset";
+                }
+                else if(y == slidesObj.length)
+                {
+                    document.getElementById("left").style.visibility = "unset";
+                    document.getElementById("right").style.visibility = "hidden";
+                }
+                else{
+                       document.getElementById("left").style.visibility = "unset";
+                        document.getElementById("right").style.visibility = "unset"
+                }
+
+                let source = slidesObj[y-1].src;
+                let alt = slidesObj[y-1].alt;
+              
+                document.getElementById("imgDisplayer").src = source;
+                document.getElementById("imgDisplayer").alt = alt;
+             
+                document.getElementById(y).style.fontWeight = "bold";
+                document.getElementById(y).style.textDecoration = "underline";
+        
+        }
+    
+        // this functions will run on default
+        displayLinks();
+
+        //this function will run once by default, then it runs on link click
+        loadSlide(1);
+    
     </script>
 </body>
 </html>
